@@ -1,0 +1,21 @@
+name: "Model License Compliance Checker"
+description: "Fails if required AI/ML model license attributions are missing."
+author: "ModelGuardHQ-Tools"
+inputs:
+  files:
+    description: |
+      Glob pattern(s) of files to scan for license attributions.
+      You can provide multiple patterns separated by commas.
+    required: false
+    default: "**/*.{md,txt,LICENSE,NOTICE}"
+  data-file:
+    description: |
+      Path to the JSON file mapping model names to required snippets.
+    required: false
+    default: "data/model-licenses.json"
+runs:
+  using: "node12"
+  main: "src/index.js"
+outputs:
+  missing:
+    description: "JSON array of model names that are missing required attributions."
