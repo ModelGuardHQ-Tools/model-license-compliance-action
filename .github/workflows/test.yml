@@ -1,0 +1,11 @@
+name: Test Model License Compliance
+on:
+  pull_request:
+jobs:
+  compliance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run License Compliance Check
+        uses: ./
+        id: compliance
